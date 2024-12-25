@@ -1,0 +1,26 @@
+@if(investmentData) {
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Invested Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (data of investmentData; track data.year) {
+    <tr>
+      <td>{{ data.year }}</td>
+      <td>{{ data.valueEndOfYear | currency : "BTN" }}</td>
+      <td>{{ data.interest | currency : "BTN" }}</td>
+      <td>{{ data.totalInterest | currency : "BTN" }}</td>
+      <td>{{ data.totalAmountInvested | currency : "BTN" }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+}@else {
+<p class="center">Please calculate your investment</p>
+}
